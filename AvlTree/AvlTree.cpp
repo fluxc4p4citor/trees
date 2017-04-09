@@ -12,6 +12,28 @@ typedef struct tree_node
 	int data;
 } Node;
 
+Node* Tree_insert(Node* root, int value)
+{
+	Node* parent = root;
+	Node* offset = root;
+
+	while (offset != 0)
+	{
+		if (offset->data < value)
+		{
+			parent = offset;
+			offset = offset->left;
+		}
+		else if (offset->data > value)
+		{
+			parent = offset;
+			offset = offset->right;
+		}
+	}
+
+
+}
+
 Node* Node_init()
 {
 	Node* node = (Node*)malloc(sizeof(Node));
@@ -23,6 +45,8 @@ Node* Node_init()
 
 	return node;
 }
+
+
 
 int main()
 {
